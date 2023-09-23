@@ -124,7 +124,8 @@ class GFrame(tk.Frame):
 
 def main():
 	game = RPS()
-	root = App(screenName="Game", baseName="RPSGame", game=game)
+	root = App(baseName="RPSGame", game=game)
+	root.title("Play Rock Paper and Scissors")
 	GFrame(root)
 	root.resizable(0,0)
 	root.mainloop()
