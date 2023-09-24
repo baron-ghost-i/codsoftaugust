@@ -98,10 +98,15 @@ class App(tk.Tk):
 
 	def reset(self, response):
 		if response is None:
-			return
-		if not response:
+			for i in self.winfo_children():
+				if isinstance(i, tk.Frame):
+					for j in i.winfo_children():
+						j.configure(state="disabled")
+				else:
+					i.configure(state = "disabled")
+		elif not response:
 			self.destroy()
-		elif response:
+		else:
 			self.game.p1 = self.game.p2 = 0
 			self.Score.configure(text=f"Player: \t\t{self.game.p1}\nComputer: \t{self.game.p2}")
 			self.gameinfo.configure(text="")
